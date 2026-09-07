@@ -1,4 +1,4 @@
-# DocTrace · Multimodal Retrieval for Complex Documents
+# 复杂文档解析与证据检索
 
 面向扫描件、多栏排版、复杂表格、图表与公式 PDF 的证据检索工程。系统从文档预检开始，依次完成 MinerU 解析、质量门控、Qwen3-VL 按需修订、结构重建、多模态切块、存证与检索；召回结果保留页码、坐标、资产和修订来源，便于回到原文复核。
 
