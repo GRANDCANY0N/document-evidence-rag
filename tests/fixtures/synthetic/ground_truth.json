@@ -1,0 +1,423 @@
+{
+  "documents": [
+    {
+      "expected": {
+        "column_count": 2,
+        "do_not_interleave_columns": true,
+        "reading_order_tokens": [
+          "DOC_TITLE",
+          "L1",
+          "L2",
+          "L3",
+          "R1",
+          "R2",
+          "R3",
+          "CAPTION"
+        ]
+      },
+      "file": "two_column_reading_order.pdf",
+      "page_count": 1,
+      "scenario_ids": [
+        "two_column_reading_order"
+      ]
+    },
+    {
+      "expected": {
+        "horizontal_tokens": [
+          "H1",
+          "H2",
+          "H3",
+          "LANDSCAPE-H1",
+          "LANDSCAPE-H2"
+        ],
+        "page_orientations": [
+          "portrait",
+          "landscape"
+        ],
+        "rotated_text": "ROTATED-90-DEGREES",
+        "vertical_text_top_to_bottom": "纵向文字测试区",
+        "vertical_token": "V1"
+      },
+      "file": "mixed_orientation.pdf",
+      "page_count": 2,
+      "scenario_ids": [
+        "horizontal_vertical_text",
+        "mixed_page_orientation"
+      ]
+    },
+    {
+      "expected": {
+        "header": [
+          "Row ID",
+          "Batch",
+          "Item",
+          "Qty",
+          "Unit price",
+          "Status"
+        ],
+        "header_repeated_on_every_page": true,
+        "logical_boundary": 64,
+        "physical_to_logical_page": {
+          "1": 62,
+          "2": 63,
+          "3": 64,
+          "4": 65,
+          "5": 66
+        },
+        "row_ids_by_logical_page": {
+          "62": [
+            "RID-62-01",
+            "RID-62-02",
+            "RID-62-03",
+            "RID-62-04",
+            "RID-62-05",
+            "RID-62-06",
+            "RID-62-07",
+            "RID-62-08"
+          ],
+          "63": [
+            "RID-63-01",
+            "RID-63-02",
+            "RID-63-03",
+            "RID-63-04",
+            "RID-63-05",
+            "RID-63-06",
+            "RID-63-07",
+            "RID-63-08"
+          ],
+          "64": [
+            "RID-64-01",
+            "RID-64-02",
+            "RID-64-03",
+            "RID-64-04",
+            "RID-64-05",
+            "RID-64-06",
+            "RID-64-07",
+            "RID-64-08"
+          ],
+          "65": [
+            "RID-65-01",
+            "RID-65-02",
+            "RID-65-03",
+            "RID-65-04",
+            "RID-65-05",
+            "RID-65-06",
+            "RID-65-07",
+            "RID-65-08"
+          ],
+          "66": [
+            "RID-66-01",
+            "RID-66-02",
+            "RID-66-03",
+            "RID-66-04",
+            "RID-66-05",
+            "RID-66-06",
+            "RID-66-07",
+            "RID-66-08"
+          ]
+        },
+        "rows_per_page": 8,
+        "surrogate_note": "Five physical pages stand in for logical pages 62-66. Physical page 3 is the logical page-64 boundary; this exercises boundary arithmetic without a large default artifact."
+      },
+      "file": "cross_page_table_boundary_surrogate.pdf",
+      "page_count": 5,
+      "scenario_ids": [
+        "cross_page_table",
+        "repeated_table_header",
+        "logical_page_64_boundary"
+      ]
+    },
+    {
+      "expected": {
+        "page_1": {
+          "header": [
+            "Code",
+            "Region",
+            "Product",
+            "Q1",
+            "Q2",
+            "Delta"
+          ],
+          "rows": [
+            [
+              "A-101",
+              "North",
+              "Nimbus",
+              "120",
+              "138",
+              "+18"
+            ],
+            [
+              "A-102",
+              "North",
+              "Cirrus",
+              "95",
+              "91",
+              "-4"
+            ],
+            [
+              "B-201",
+              "West",
+              "Stratus",
+              "210",
+              "246",
+              "+36"
+            ],
+            [
+              "B-202",
+              "West",
+              "Cumulus",
+              "178",
+              "165",
+              "-13"
+            ],
+            [
+              "C-301",
+              "East",
+              "Aurora",
+              "81",
+              "116",
+              "+35"
+            ],
+            [
+              "C-302",
+              "East",
+              "Zephyr",
+              "149",
+              "152",
+              "+3"
+            ]
+          ],
+          "table_kind": "borderless"
+        },
+        "page_2": {
+          "body_row_spans": [
+            {
+              "rowspan": 2,
+              "text": "North"
+            },
+            {
+              "rowspan": 2,
+              "text": "West"
+            },
+            {
+              "rowspan": 2,
+              "text": "East"
+            }
+          ],
+          "header_spans": [
+            {
+              "colspan": 1,
+              "rowspan": 2,
+              "text": "Region"
+            },
+            {
+              "colspan": 1,
+              "rowspan": 2,
+              "text": "Product"
+            },
+            {
+              "colspan": 3,
+              "rowspan": 1,
+              "text": "Measurements"
+            }
+          ],
+          "leaf_headers": [
+            "Mean",
+            "Std dev",
+            "N"
+          ]
+        }
+      },
+      "file": "borderless_multilevel_merged_tables.pdf",
+      "page_count": 2,
+      "scenario_ids": [
+        "borderless_table",
+        "multilevel_header",
+        "merged_cells"
+      ]
+    },
+    {
+      "expected": {
+        "blurred": "TARGET: BLUR-COMET",
+        "common_checksum": "7K9-M2Q",
+        "control": "TARGET: SHARP-ORBIT",
+        "low_contrast": "TARGET: PALE-MOON"
+      },
+      "file": "degraded_images.pdf",
+      "page_count": 1,
+      "scenario_ids": [
+        "blurred_image",
+        "low_contrast_image"
+      ]
+    },
+    {
+      "expected": {
+        "page_1": {
+          "edges": [
+            [
+              "START: RECEIVE",
+              "VALID FORMAT?",
+              null
+            ],
+            [
+              "VALID FORMAT?",
+              "REJECT",
+              "NO"
+            ],
+            [
+              "VALID FORMAT?",
+              "SCORE >= 0.8?",
+              "YES"
+            ],
+            [
+              "SCORE >= 0.8?",
+              "MANUAL REVIEW",
+              "NO"
+            ],
+            [
+              "SCORE >= 0.8?",
+              "ACCEPT",
+              "YES"
+            ]
+          ],
+          "nodes": [
+            "START: RECEIVE",
+            "VALID FORMAT?",
+            "REJECT",
+            "SCORE >= 0.8?",
+            "MANUAL REVIEW",
+            "ACCEPT"
+          ]
+        },
+        "page_2": {
+          "categories": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "series": {
+            "Alpha": [
+              42,
+              58,
+              73,
+              66
+            ],
+            "Beta": [
+              35,
+              64,
+              61,
+              82
+            ],
+            "Success rate": [
+              62,
+              71,
+              69,
+              88
+            ]
+          }
+        }
+      },
+      "file": "flowchart_statistical_chart.pdf",
+      "page_count": 2,
+      "scenario_ids": [
+        "flowchart",
+        "statistical_chart"
+      ]
+    },
+    {
+      "expected": {
+        "normalized_latex": [
+          "F(k) = \\int_{-\\infty}^{+\\infty} e^{-i2\\pi kx} f(x) \\, dx",
+          "\\lim_{n\\to\\infty} \\sum_{j=1}^{n} \\frac{(-1)^j j^2}{n^3+j} = -\\frac{1}{12}",
+          "A = \\begin{bmatrix} \\alpha & \\beta^2 & \\sqrt{\\gamma} \\\\ 0 & e^{i\\theta} & -\\lambda \\\\ \\partial x & \\partial y & 1/2 \\end{bmatrix}",
+          "\\frac{\\partial u}{\\partial t} + (u \\cdot \\nabla)u = -\\nabla p + \\nu \\nabla^2 u, \\quad \\nabla \\cdot u = 0"
+        ]
+      },
+      "file": "complex_formulas.pdf",
+      "page_count": 2,
+      "scenario_ids": [
+        "complex_formula",
+        "matrix",
+        "partial_differential_equation"
+      ]
+    },
+    {
+      "expected": {
+        "classify_as_non_body": [
+          "running header",
+          "running footer",
+          "page number",
+          "watermark"
+        ],
+        "do_not_deduplicate": [
+          "BODY-P1",
+          "BODY-P2",
+          "BODY-P3"
+        ],
+        "page_tokens": [
+          {
+            "body": "BODY-P1",
+            "footer": "FOOTER-P1",
+            "header": "HEADER-P1",
+            "page": 1,
+            "watermark": "SYNTHETIC COPY 1"
+          },
+          {
+            "body": "BODY-P2",
+            "footer": "FOOTER-P2",
+            "header": "HEADER-P2",
+            "page": 2,
+            "watermark": "SYNTHETIC COPY 2"
+          },
+          {
+            "body": "BODY-P3",
+            "footer": "FOOTER-P3",
+            "header": "HEADER-P3",
+            "page": 3,
+            "watermark": "SYNTHETIC COPY 3"
+          }
+        ]
+      },
+      "file": "headers_footers_watermarks.pdf",
+      "page_count": 3,
+      "scenario_ids": [
+        "running_header",
+        "running_footer",
+        "page_number",
+        "watermark"
+      ]
+    },
+    {
+      "expected": {
+        "construction_guarantee": "No underlying value is drawn before rasterization; no hidden text object exists in the PDF.",
+        "forbidden_behavior": "Do not guess, reconstruct, or hallucinate values for blacked-out fields.",
+        "occluded_fields": {
+          "Access code": {
+            "expected": "[OCCLUDED]",
+            "recoverable": false
+          },
+          "Account suffix": {
+            "expected": "[OCCLUDED]",
+            "recoverable": false
+          }
+        },
+        "visible_fields": {
+          "Contact name": "Ada Example",
+          "Record ID": "REC-1042",
+          "Review status": "APPROVED"
+        }
+      },
+      "file": "occlusion_irrecoverable.pdf",
+      "page_count": 1,
+      "scenario_ids": [
+        "occlusion",
+        "irrecoverable_field",
+        "anti_hallucination"
+      ]
+    }
+  ],
+  "fixture_kind": "fully_synthetic_no_real_user_data",
+  "schema_version": "1.0"
+}

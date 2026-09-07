@@ -1,0 +1,50 @@
+mineru:
+  api_base: https://mineru.net
+  model_version: vlm
+  language: ch
+  enable_table: true
+  enable_formula: true
+  is_ocr: true
+  poll_interval_seconds: 5
+  timeout_seconds: 1800
+
+vlm:
+  api_base: https://api.siliconflow.cn/v1
+  temperature: 0.0
+  max_tokens: 4096
+  max_retries: 1
+  image_detail: high
+
+embedding:
+  api_base: https://api.siliconflow.cn/v1
+  dimensions: 0
+  batch_size: 16
+
+rerank:
+  api_base: https://api.siliconflow.cn/v1
+  top_n: 8
+
+pipeline:
+  # v3 is isolated from the legacy collection so a schema/index rollback does
+  # not destroy the vectors produced by earlier runs.
+  milvus_collection_prefix: document_chunks_v3
+  page_work_unit: 64
+  render_dpi: 220
+  # Provisional Unicode-character defaults, not tokenizer tokens and not an
+  # experimentally proven optimum. Tune them with a document-specific RAG
+  # evaluation set; 120 is the current 10% boundary buffer.
+  text_chunk_chars: 1200
+  text_chunk_overlap: 120
+  table_row_group_size: 6
+  vlm_on_all_images: true
+  keep_extracted_archives: true
+  table_tile_max_height: 600
+  table_tile_overlap: 100
+
+quality:
+  blur_variance_threshold: 80.0
+  low_contrast_std_threshold: 22.0
+  dark_region_ratio: 0.25
+  repeated_char_ratio: 0.45
+  table_continuation_auto_threshold: 0.78
+  table_continuation_vlm_threshold: 0.48

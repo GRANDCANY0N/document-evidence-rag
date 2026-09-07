@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local inputs, generated artifacts, databases and logs
+docs/
+input/
+data/
+outputs/
+*.log
